@@ -1,0 +1,49 @@
+name: 'CI Builds'
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  check-gradle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 'Set up JDK'
+        uses: actions/setup-java@v4
+        with:
+          java-version: 8
+          distribution: temurin
+      - name: 'Init Gradle Build Action'
+        uses: gradle/gradle-build-action@v3
+        with:
+          # cache options only count for the first invocation
+          cache-read-only: ${{ github.ref != 'refs/heads/master' }}
+          arguments: --version
+      - name: 'Check Spock'
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: check
+  check-maven:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache local Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: test-${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            test-${{ runner.os }}-maven-
+      - name: 'Set up JDK'
+        uses: actions/setup-java@v4
+        with:
+          java-version: 8
+          distribution: temurin
+      - name: 'Check Spock'
+        run: |
+          ./mvnw -V -B verify
