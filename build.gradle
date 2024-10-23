@@ -157,6 +157,7 @@ dependencies {
     implementation 'org.codehaus.groovy:groovy-all:2.4.11'
     implementation "org.jenkins-ci.plugins:job-dsl-core:${jobDslVersion}"
     implementation 'org.kohsuke:github-api:1.93'
+    implementation 'org.yaml:snakeyaml:2.0' // Use the latest version
 
     testImplementation 'org.spockframework:spock-core:1.3-groovy-2.4'
     testImplementation 'cglib:cglib-nodep:2.2.2' // used by Spock

@@ -1,0 +1,212 @@
+GERRIT_CREDENTIALS_ID: 0395ab83-9f71-45ed-b949-870c884e13de
+COMPONENT_NAME: OneDNN
+COMPONENT_REPO: libraries.performance.math.onednn-cicd
+COMPONENTS_YML:
+  components:
+  - name: HL_thunk_FS
+    mainRepository: hl-thunk-cicd
+    jenkins: sw-jenkins-ctrl11
+    gitHubOrg: HabanaFS
+    productiveFrom: v0.5.0_next
+    hybrid: {GAUDI: HL_thunk}
+  - name: rdma_core_FS
+    mainRepository: rdma-core-cicd
+    jenkins: sw-jenkins-ctrl11
+    gitHubOrg: HabanaFS
+    productiveFrom: v0.5.0_next
+    hybrid: {GAUDI: rdma_core}
+  - name: nic_kmd_FS
+    mainRepository: nic_kmd-cicd
+    jenkins: sw-jenkins-ctrl11
+    gitHubOrg: HabanaFS
+    productiveFrom: v0.5.0_next
+    hybrid: {GAUDI: nic_kmd}
+  - name: sparta_FS
+    mainRepository: sparta-cicd
+    jenkins: sw-jenkins-ctrl11
+    gitHubOrg: HabanaFS
+    productiveFrom: v0.5.0_next
+    hybrid: {GAUDI: sparta}
+  - {name: nic_kmd, mainRepository: nic_kmd, jenkins: sw-jenkins-ctrl05, productiveFrom: v0.2.0_next}
+  - {name: HL_thunk, mainRepository: hl-thunk, productiveFrom: v0.2.0_next, jenkins: sw-jenkins-ctrl05}
+  - {name: rdma_core, mainRepository: rdma-core, jenkins: sw-jenkins-ctrl05, productiveFrom: v0.2.0_next}
+  - {name: sparta, mainRepository: sparta, jenkins: sw-jenkins-ctrl02, productiveFrom: v0.6.0_next}
+  - {name: CORAL_FS, mainRepository: coral-sim-cicd, jenkins: sw-jenkins-ctrl11, gitHubOrg: HabanaFS,
+    productiveFrom: v0.1.0_next}
+  - {name: fs1_dummy_component, mainRepository: dummy.component-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: OneDNN, mainRepository: libraries.performance.math.onednn-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: xe, mainRepository: drivers.gpu.linux-xe.kernel-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: DPCPP, mainRepository: applications.compilers.llvm-project-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: PYTORCH, mainRepository: frameworks.ai.pytorch.private-gpu-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: L0, mainRepository: libraries.compute.oneapi.level-zero.loader-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: IPEX, mainRepository: frameworks.ai.pytorch.ipex-gpu-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: NEO, mainRepository: drivers.gpu.compute.runtime-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: ONECCL, mainRepository: OneCCL-cicd, gitHubOrg: HabanaFS, jenkins: sw-jenkins-ctrl10,
+    productiveFrom: v0.1.0_next}
+  - {name: CMC, mainRepository: drivers.gpu.compiler.cmc.clang-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: OPENCL_CLANG, mainRepository: drivers.gpu.compute.opencl.clang-cicd, gitHubOrg: HabanaFS,
+    jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: OCL_HEADERS, mainRepository: applications.compilers.source.opencl-headers-cicd,
+    gitHubOrg: HabanaFS, jenkins: sw-jenkins-ctrl10, productiveFrom: v0.1.0_next}
+  - {name: SYNAPSE_FS, mainRepository: synapse-cicd, jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS,
+    productiveFrom: v0.1.0_next}
+  - {name: CODEC_FS, mainRepository: codec-cicd, jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS,
+    productiveFrom: v0.1.0_next}
+  - {name: QEMU, mainRepository: qemu-fork-cicd, jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS,
+    productiveFrom: v0.1.0_next}
+  - {name: IGT, mainRepository: drivers.gpu.linux-xe.igt-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.1.0_next}
+  - {name: SPECS_H15, mainRepository: specs_h15-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.1.0_next}
+  - {name: XETLA, mainRepository: libraries.gpu.xetla-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.1.0_next}
+  - {name: TRACELIB, mainRepository: tracelib-cicd, jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS,
+    productiveFrom: v0.2.0_next}
+  - {name: XESIM, mainRepository: applications.simulators.gpu.cobalt-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.2.0_next}
+  - {name: MLIR_FUSER, mainRepository: mlir-fuser-cicd, jenkins: sw-jenkins-ctrl11,
+    gitHubOrg: HabanaFS, productiveFrom: v0.2.0_next}
+  - {name: PERF_LIB, mainRepository: perf_lib-cicd, jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS,
+    productiveFrom: v0.2.0_next}
+  - {name: SPECS_EXTERNAL_FS, mainRepository: specs_external-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.2.0_next}
+  - {name: MLIR_CGUID, mainRepository: mlir-cguid-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.2.0_next}
+  - {name: SCAL_FS, mainRepository: scal-cicd, jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS,
+    productiveFrom: v0.2.0_next}
+  - {name: SYNGRAPH_LAUNCHER, mainRepository: syngraph_launcher-cicd, jenkins: sw-jenkins-ctrl11,
+    gitHubOrg: HabanaFS, productiveFrom: v0.2.0_next}
+  - {name: HL_LOGGER, mainRepository: hl_logger-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.1.0_next}
+  - {name: COMMON_CODE_VAL, mainRepository: frameworks.ai.common_code.validation-cicd,
+    jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS, productiveFrom: v0.2.0_next}
+  - {name: PT_TRAINING_VAL, mainRepository: frameworks.ai.pytorch.training.validation-cicd,
+    jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS, productiveFrom: v0.2.0_next}
+  - {name: RUNTIME_FW, mainRepository: runtime_fw-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.3.0_next}
+  - {name: STAGING_FS1_DUMMY_COMPONENT, mainRepository: staging.dummy.component-cicd,
+    gitHubOrg: HabanaFS, jenkins: staging-sw-jenkins-ctrl23}
+  - {name: PT_FEATURE_VAL, mainRepository: frameworks.ai.pytorch.features.validation-cicd,
+    jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS, productiveFrom: v0.2.0_next}
+  - {name: HL_GCFG, mainRepository: hl_gcfg-cicd, jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS,
+    productiveFrom: v0.2.0_next}
+  - {name: ONEMKL, mainRepository: libraries.performance.math.mkl-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS}
+  - {name: MLIR_EXTENSIONS, mainRepository: frameworks.ai.mlir.mlir-extensions-cicd,
+    jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS, productiveFrom: v0.3.0_next}
+  - {name: IPEX_BENCHMARKUTILS, mainRepository: frameworks.ai.pytorch.ipex-gpu-benchmarkutils-cicd,
+    jenkins: sw-jenkins-ctrl10, gitHubOrg: HabanaFS, productiveFrom: v0.3.0_next}
+  - {name: NMC, mainRepository: fw.nss.nmc-cicd, jenkins: sw-jenkins-ctrl11, gitHubOrg: HabanaFS,
+    productiveFrom: v0.3.0_next}
+  - {name: OSAL, mainRepository: fw.osal-cicd, jenkins: sw-jenkins-ctrl11, gitHubOrg: HabanaFS,
+    productiveFrom: v0.3.0_next}
+  - {name: CANARY_FS, mainRepository: canary-fs-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.3.0_next}
+  - {name: THIRD_PARTIES, mainRepository: thirdparties-cicd, jenkins: sw-jenkins-ctrl10,
+    gitHubOrg: HabanaFS, productiveFrom: v0.4.0_next}
+  - {name: GPU_MODELS, mainRepository: frameworks.ai.pytorch.gpu-models-cicd, jenkins: sw-jenkins-ctrl11,
+    gitHubOrg: HabanaFS, productiveFrom: v0.4.0_next}
+  - {name: HABANAQA_FS_CORE, mainRepository: habanaqa_fs_core-cicd, jenkins: sw-jenkins-ctrl11,
+    gitHubOrg: HabanaFS, productiveFrom: v0.5.0_next}
+  - {name: NCS, mainRepository: fw.nss.ncs-cicd, jenkins: sw-jenkins-ctrl11, gitHubOrg: HabanaFS,
+    productiveFrom: v0.5.0_next}
+  - {name: SYNREC_FS, mainRepository: synrec-cicd, jenkins: sw-jenkins-ctrl11, gitHubOrg: HabanaFS,
+    productiveFrom: v0.6.0_next}
+  - {name: VERIFAI_VAL, mainRepository: frameworks.ai.verifai.validation-cicd, jenkins: sw-jenkins-ctrl11,
+    gitHubOrg: HabanaFS}
+  - {name: FS_TRITON, mainRepository: fs-triton-cicd, jenkins: sw-jenkins-ctrl11,
+    gitHubOrg: HabanaFS, productiveFrom: v0.5.0_next}
+  - {name: MEDIA_FS, mainRepository: media-cicd, jenkins: sw-jenkins-ctrl11, gitHubOrg: HabanaFS,
+    productiveFrom: v0.6.0_next}
+  - {name: XE_REGS_CLI, mainRepository: xe_regs_cli-cicd, jenkins: sw-jenkins-ctrl11,
+    gitHubOrg: HabanaFS, productiveFrom: v0.6.0_next}
+  - {name: PROFILING_TOOLS, mainRepository: applications.analyzers.profilingtoolsinterfaces.sdk-cicd,
+    jenkins: sw-jenkins-ctrl11, gitHubOrg: HabanaFS, productiveFrom: v0.6.0_next}
+  - {name: SPECS_H16, mainRepository: specs_h16-cicd, jenkins: sw-jenkins-ctrl11,
+    gitHubOrg: HabanaFS}
+OTHER_COMPONENTS_YML:
+  components: []
+EMB_COMPONENTS_YML:
+  components:
+  - name: Embedded
+    mainRepository: embedded_ci
+    jenkins: sw-jenkins-ctrl08
+    productiveFrom: v0.4.0_next
+    customFolders:
+    - {name: Release, description: A custom reactor for Release jobs}
+REPOS_LIST:
+- {project: libraries.performance.math.onednn-cicd, revision: master_next}
+- {project: libraries.performance.math.onednn, revision: master_next}
+CONFIG:
+  config:
+    jobTimeout: '60'
+    sharedCCacheEnabled: true
+    environmentVariables: {dockerImage: 'artifactory-kfs.habana-labs.com/devops-docker-local/fs-one:onednn-ubuntu2204'}
+BRANCH: master_next
+BRANCH_NAME: master_next
+IS_STAGING: true
+TEST_SUFFIX: _Matan_Bachar
+STAGING_PREFIX: staging_
+OS: {longName: ubuntu22.04, shortName: u22}
+OS_LIST:
+  ubuntu22.04: {shortName: u22, primary: true}
+DEFAULT_DOCKER_IMAGE: artifactory-kfs.habana-labs.com/devops-docker-local/fs-one
+WORKSPACE: /home/jenkins/workspace/staging_dsl_Reactor_Build_OneDNN
+CONFIG_YML: &id001
+  config:
+    osBuild: null
+    dependantComponents:
+    - {component: IPEX}
+BUILD_CONFIG: *id001
+EXTENDED_BUILDS_CONFIG: {coverityConfig: null}
+PRESUBMIT_CONFIG: null
+IS_LOCAL_MANIFEST: true
+REPO_MANIFEST_PATH: manifests/ci.xml
+IS_PRODUCTIVE: 'true'
+IS_POST_RELEASE_BRANCH_PARAM: false
+RELEASE_VERSION: 0.7.0
+env: {BUILD_DISPLAY_NAME: '#209', BUILD_ID: '209', BUILD_NUMBER: '209', BUILD_TAG: jenkins-staging_dsl_Reactor_Build_OneDNN-209,
+  BUILD_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/job/staging_dsl_Reactor_Build_OneDNN/209/',
+  CI: 'true', CLASSPATH: '', COMPONENT_NAME: OneDNN, COMPONENT_REPO: libraries.performance.math.onednn-cicd,
+  GERRIT_BRANCH: master, GERRIT_CHANGE_COMMIT_MESSAGE: W0ZTVy05MTc1XSBDb21wb25lbnQgc3BlY2lmaWMgZG9ja2VyIGZvciBidWlsZCB3aXRoIGJjCgpDaGFuZ2UtSWQ6IEljZDQ3ODUwZTUxZTY3YTQ1MjgyMDkwOWIzMmJhNDM1Mjg1OWMxNWRkCg==,
+  GERRIT_CHANGE_ID: Icd47850e51e67a452820909b32ba4352859c15dd, GERRIT_CHANGE_NUMBER: '456312',
+  GERRIT_CHANGE_OWNER: \"Matan Bachar\" <mbachar@habana.ai>, GERRIT_CHANGE_OWNER_EMAIL: mbachar@habana.ai,
+  GERRIT_CHANGE_OWNER_NAME: Matan Bachar, GERRIT_CHANGE_PRIVATE_STATE: 'false', GERRIT_CHANGE_SUBJECT: '[FSW-9175]
+    Component specific docker for build with bc', GERRIT_CHANGE_URL: 'https://gerrit.habana-labs.com/456312',
+  GERRIT_CHANGE_WIP_STATE: 'false', GERRIT_EVENT_ACCOUNT: \"Matan Bachar\" <mbachar@habana.ai>,
+  GERRIT_EVENT_ACCOUNT_EMAIL: mbachar@habana.ai, GERRIT_EVENT_ACCOUNT_NAME: Matan
+    Bachar, GERRIT_EVENT_HASH: '-1039415251', GERRIT_EVENT_TYPE: patchset-created,
+  GERRIT_HOST: gerrit.habana-labs.com, GERRIT_NAME: gerrit-dev, GERRIT_PATCHSET_NUMBER: '2',
+  GERRIT_PATCHSET_REVISION: f984185e91467a34649868d50d5ae19870842d07, GERRIT_PATCHSET_UPLOADER: \"Matan
+    Bachar\" <mbachar@habana.ai>, GERRIT_PATCHSET_UPLOADER_EMAIL: mbachar@habana.ai,
+  GERRIT_PATCHSET_UPLOADER_NAME: Matan Bachar, GERRIT_PORT: '29418', GERRIT_PROJECT: job_dsl,
+  GERRIT_REFSPEC: refs/changes/12/456312/2, GERRIT_SCHEME: ssh, GERRIT_TOPIC: '',
+  GERRIT_VERSION: 2.14.20, GIT_CHANGE_ID: '456312', GIT_CHANGE_URL: 'https://gerrit.habana-labs.com/456312',
+  GIT_COMMIT_OWNER_EMAIL: mbachar@habana.ai, GIT_COMMIT_OWNER_NAME: Matan Bachar,
+  GIT_HOOK_REF: '', GIT_ORGANIZATION: '', GIT_PREVIOUS_REVISION: '', GIT_PROJECT: libraries.performance.math.onednn-cicd,
+  GIT_REFSPEC: refs/changes/12/456312/2, GIT_REVISION: f984185e91467a34649868d50d5ae19870842d07,
+  GIT_SOURCE_BRANCH: master, GIT_TARGET_BRANCH: master, GIT_TITLE: '[FSW-9175] Component
+    specific docker for build with bc', GIT_TRIGGER: gerrit, GITHUB_ORG: HabanaFS,
+  HOOK_PAYLOAD: '', HOOK_REF: '', HUDSON_HOME: /var/lib/cloudbees-core-cm, HUDSON_SERVER_COOKIE: 1c8d70a991a1ab93,
+  HUDSON_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/', IS_CLOUDBEES: 'true',
+  IS_HYBRID: 'false', IS_PRODUCTIVE: 'true', JENKINS_HOME: /var/lib/cloudbees-core-cm,
+  JENKINS_SERVER_COOKIE: 1c8d70a991a1ab93, JENKINS_SERVER_NAME: sw-jenkins-ctrl10,
+  JENKINS_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/', JOB_BASE_NAME: staging_dsl_Reactor_Build_OneDNN,
+  JOB_DISPLAY_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/job/staging_dsl_Reactor_Build_OneDNN/display/redirect',
+  JOB_NAME: staging_dsl_Reactor_Build_OneDNN, JOB_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/job/staging_dsl_Reactor_Build_OneDNN/',
+  library.pipeline-library.version: 52772538d, PRODUCT: FS, PRODUCT_PREFIX: '', PRODUCTIVE_BRANCH: v0.1.0_next,
+  RUN_ARTIFACTS_DISPLAY_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/job/staging_dsl_Reactor_Build_OneDNN/209/display/redirect?page=artifacts',
+  RUN_CHANGES_DISPLAY_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/job/staging_dsl_Reactor_Build_OneDNN/209/display/redirect?page=changes',
+  RUN_DISPLAY_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/job/staging_dsl_Reactor_Build_OneDNN/209/display/redirect',
+  RUN_TESTS_DISPLAY_URL: 'https://sw-jenkins-ctrl10.habana-labs.com/job/staging_dsl_Reactor_Build_OneDNN/209/display/redirect?page=tests',
+  STAGING_PREFIX: staging_}
+COMPONENT_SPECIFIC_DOCKER: true

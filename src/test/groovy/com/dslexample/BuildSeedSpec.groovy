@@ -1,6 +1,9 @@
 package com.dslexample
 
+import com.dslexample.support.ReactorSimulator
 import com.dslexample.support.TestUtil
+import com.dslexample.support.JobWrapper
+import org.yaml.snakeyaml.Yaml
 import hudson.model.Item
 import hudson.model.View
 import javaposse.jobdsl.dsl.DslScriptLoader
@@ -14,14 +17,13 @@ import org.junit.ClassRule
 import org.jvnet.hudson.test.JenkinsRule
 import spock.lang.Shared
 import spock.lang.Specification
-import spock.lang.Unroll
 
 /**
  * Tests that all dsl scripts in the jobs directory will compile. All config.xml's are written to build/debug-xml.
  *
  * This runs against the jenkins test harness. Plugins providing auto-generated DSL must be added to the build dependencies.
  */
-class JobScriptsSpec extends Specification {
+class BuildSeedSpec extends Specification {
 
     @Shared
     @ClassRule
@@ -30,33 +32,33 @@ class JobScriptsSpec extends Specification {
     @Shared
     private File outputDir = new File('./build/debug-xml')
 
+    @Shared
+    private File seedFile = new File('src/jobs/buildSeed.groovy')
+
+    @Shared
+    private Map defaults
+
     def setupSpec() {
         outputDir.deleteDir()
+        // Load default YAML file
+        defaults = new Yaml().load(new File("src/test/groovy/com/dslexample/support/reactorexamples/example1.yml").text)
     }
 
-    @Unroll
-    void 'test script docker env var'(File file) {
+    void 'test script docker env var'() {
         given:
-        Map<String, Object> parameters = [
-            "DOCKER_NAME": "my-docker-image:latest"
-        ]
+        Map parameters = new ReactorSimulator(defaults).build()
         JobManagement jm = new JenkinsJobManagement(System.out, parameters, new File('.'))
         Jenkins jenkins = jenkinsRule.jenkins
 
         when:
-        GeneratedItems items = new DslScriptLoader(jm).runScript(file.text)
+        GeneratedItems items = new DslScriptLoader(jm).runScript(seedFile.text)
         writeItems(items, outputDir)
 
         then:
         noExceptionThrown()
 
-        def job = items.jobs.find { it.jobName == 'example-job-with-env' }
-        String jobName = job.jobName
-        Item item = jenkins.getItemByFullName(jobName)
-        item.properties.values()[0].info.propertiesContent == "dockerImage=my-docker-image:latest"
-
-        where:
-        file << [new File("src/jobs/example1Jobs.groovy")]
+        def job = TestUtil.getJobByName(jenkins, items, 'staging_Build_OneDNN_u22_master_next_Matan_Bachar')
+        job.getEnvVar("dockerImage") == "artifactory-kfs.habana-labs.com/devops-docker-local/fs-one:onednn-ubuntu2204"
     }
 
     /**

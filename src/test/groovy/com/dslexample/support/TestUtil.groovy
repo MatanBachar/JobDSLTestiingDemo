@@ -1,6 +1,10 @@
 package com.dslexample.support
 
 import groovy.io.FileType
+import com.dslexample.support.JobWrapper
+import javaposse.jobdsl.dsl.GeneratedItems
+import jenkins.model.Jenkins
+
 
 class TestUtil {
 
@@ -26,5 +30,14 @@ class TestUtil {
 
         File xmlFile = new File(folderDir, "${tokens[-1]}.xml")
         xmlFile.text = xml
+    }
+
+    static JobWrapper getJobByName(Jenkins jenkins, GeneratedItems items, String jobName) {
+        def job = items.jobs.find { it.jobName == jobName }
+        try {
+            return new JobWrapper(jenkins.getItemByFullName(job.jobName))
+        } catch (NullPointerException e) {
+            throw new NoSuchElementException("Job ${jobName} was not found in jenkins controller")
+        }
     }
 }
